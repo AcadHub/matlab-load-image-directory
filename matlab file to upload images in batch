@@ -1,0 +1,25 @@
+% Matlab codes by Dr. Goan
+% https://www.academicblock.com
+
+% Specify the folder containing the images, enter your own path below
+folder = 'path/to/your/folder';
+
+% Get a list of all image files in the folder
+imageFiles = dir(fullfile(folder, '*.jpg')); % Change '*.jpg' to match your desired image extensions.
+
+% Count the number of images in the folder
+numImages = numel(imageFiles);
+
+% Loop through each image
+for i = 1:numImages
+    % Read the image
+    img = imread(fullfile(folder, imageFiles(i).name));
+    
+    % Display the image
+    imshow(img);
+    % Add your own coes here, depending on what you want to do.
+    
+    % Wait for the user to press the space bar
+    fprintf('Press the space bar to view the next image.\n');
+    waitfor(gcf, 'CurrentCharacter', ' ');
+end
